@@ -3,16 +3,19 @@
     <div class="container mt-4">
       <h1>Welcome to the main app</h1>
     </div>
+    <AyudaBar/>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import AyudaBar from './components/Ayuda.vue';
 
 export default {
   name: 'App',
   components: {
     
-    NavBar
+    NavBar,
+    AyudaBar,
   }
 }
 </script>
