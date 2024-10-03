@@ -2,7 +2,7 @@
 
     <header class="ayuda">
         <div class="banner">
-            
+            <p>¿Necesitas ayuda?</p>
         </div>
     </header>
 
