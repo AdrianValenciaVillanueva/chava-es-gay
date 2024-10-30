@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       activeItem: 'home',
-      logo: require('@/assets/logo.png')
+      logo: require('@/views/assets/logo.png')
     }
   },
   methods: {
