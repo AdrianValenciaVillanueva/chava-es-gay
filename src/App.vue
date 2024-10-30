@@ -1,20 +1,27 @@
+
 <template>
   <NavBar/>
     <div class="container mt-4">
-      <h1>Welcome to the main app</h1>
+      <BannerAyuda/>
     </div>
+    <SeccionContacto/>
     <AyudaBar/>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
 import AyudaBar from './components/Ayuda.vue';
+import BannerAyuda from './components/BannerAyuda.vue';
+import SeccionContacto from './components/SeccionContacto.vue';
+
 
 export default {
   name: 'App',
   components: {
-    
+
     NavBar,
+    BannerAyuda,
+    SeccionContacto,
     AyudaBar,
   }
 }
@@ -28,4 +35,4 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-</style>
+</style> 
