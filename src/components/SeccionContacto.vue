@@ -144,4 +144,35 @@ export default {
   background-color: #8A76C7;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 1280px) {
+  .textfields, .selector {
+        width: 700px; /* Reducción del ancho para pantallas medianas */
+        margin: auto;
+    }
+
+    .botonEn {
+        width: 300px; /* Ajuste del ancho del botón */
+    }
+}
+
+@media (max-width: 768px) {
+  .titulo {
+        font-size: 2.5rem; /* Tamaño de fuente reducido para móviles */
+    }
+
+    .descripcion {
+        font-size: 1.5rem;
+    }
+
+    .textfields, .selector {
+        width: 90%; /* Uso de porcentaje para mejor ajuste en móviles */
+    }
+
+    .botonEn {
+      margin-top: 20px;
+        width: 90%;
+        height: 50px; 
+        font-size: 1.2rem;
+    }
+}
 </style>
