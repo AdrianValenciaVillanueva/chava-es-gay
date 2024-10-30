@@ -1,5 +1,5 @@
-
 <template>
+   <router-view/>
   <NavBar/>
     <div class="container mt-4">
       <BannerAyuda/>

@@ -146,18 +146,18 @@ export default {
 }
 @media (max-width: 1280px) {
   .textfields, .selector {
-        width: 700px; /* Reducción del ancho para pantallas medianas */
+        width: 700px; 
         margin: auto;
     }
 
     .botonEn {
-        width: 300px; /* Ajuste del ancho del botón */
+        width: 300px; 
     }
 }
 
 @media (max-width: 768px) {
   .titulo {
-        font-size: 2.5rem; /* Tamaño de fuente reducido para móviles */
+        font-size: 2.5rem; 
     }
 
     .descripcion {
@@ -165,7 +165,7 @@ export default {
     }
 
     .textfields, .selector {
-        width: 90%; /* Uso de porcentaje para mejor ajuste en móviles */
+        width: 90%; 
     }
 
     .botonEn {
