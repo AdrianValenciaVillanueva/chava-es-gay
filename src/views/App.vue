@@ -6,6 +6,7 @@
     </div>
     <SeccionContacto/>
     <AyudaBar/>
+    <ForosChat></ForosChat>
 </template>
 
 <script>
@@ -13,7 +14,7 @@ import NavBar from './components/NavBar.vue';
 import AyudaBar from './components/Ayuda.vue';
 import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
-
+import ForosChat from './components/ForosChat.vue'
 
 export default {
   name: 'App',
@@ -23,6 +24,7 @@ export default {
     BannerAyuda,
     SeccionContacto,
     AyudaBar,
+    ForosChat,
   }
 }
 </script>
