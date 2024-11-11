@@ -8,7 +8,7 @@
                 <img src="ruta-del-icono.svg" alt="icono de apoyo emocional" />
             </div>
             <div class="CajaTexto">
-                <p>Pregunta o historia que conta lorem40r</p>
+                <p>Pregunta o historia que contar lorem40r</p>
             </div>
         </div>
         
@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 
-
+/* =================================== TÍTULO =========================================== */
 .Titulo h1 {
     font-size: 2.5rem;
     color: #2d234a; /* Color similar al del título en la imagen */
@@ -41,6 +41,7 @@ export default {
     margin-top: 1rem;
 }
 
+/* =================================== CONTENEDOR GENERAL =========================================== */
 .Foro {
     margin: auto;
     width: 100%;
@@ -50,7 +51,6 @@ export default {
     align-items: flex-start;
     flex-direction: column;
 }
-
 
 /* =================================== TEXTO DE PERSONAS =========================================== */
 .PreguntaCaja {
@@ -83,6 +83,7 @@ export default {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, .5);
 }
 
+/* =================================== ICONOS =========================================== */
 .Icono {
     position: absolute;
     top: -10px;
@@ -101,21 +102,45 @@ export default {
     height: 24px;
 }
 
-/* Posicion del icono en la izquierda para un wey ajeno */
+/* Posición del icono en la izquierda para un usuario externo */
 .PreguntaCaja .Icono {
     left: -40px;
 }
 
-/* Posicion del icono en la derecha parael  user */
+/* Posición del icono en la derecha para el usuario */
 .IconoDerecha {
     right: -40px;
 }
 
+/* =================================== ESTILOS DE TEXTO =========================================== */
 .CajaTexto {
     text-align: justify;
     padding: 1rem;
     font-size: 1rem;
     color: #000;
     text-align: left;
+}
+
+/* =================================== MEDIA QUERY =========================================== */
+@media (max-width: 768px) {
+    .Titulo h1 {
+        font-size: 1.8rem; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    .PreguntaCaja, .PreguntaUsuario {
+        width: 100%; /* Hacer que las cajas ocupen el 100% del ancho */
+        margin-left: 0; /* Quitar márgenes laterales */
+        margin-right: 0;
+    }
+
+    .Icono {
+        position: static; /* Hacer que el icono se posicione de forma estática para que no se salga del contenedor */
+        margin-bottom: 0.5rem; /* Añadir margen debajo del icono */
+    }
+
+    .CajaTexto {
+        font-size: 0.9rem; /* Reducir tamaño de texto */
+        padding: 0.5rem; /* Reducir padding */
+    }
 }
 </style>
