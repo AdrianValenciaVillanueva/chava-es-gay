@@ -1,0 +1,24 @@
+<template>
+    <ForosChat/>
+</template>
+    
+<script>
+import ForosChat from './components/ForosChat.vue';
+
+export default {
+    name: 'IniciarSesion',
+      components: {
+        ForosChat
+    }
+}
+</script>
+    
+    <style>
+    * {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+    }
+    </style> 

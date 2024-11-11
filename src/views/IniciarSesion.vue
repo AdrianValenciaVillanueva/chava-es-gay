@@ -1,17 +1,16 @@
 <template>
-    <div>
-      <h1>Iniciar Sesión</h1>
-      <p>Introduce tus credenciales para acceder.</p>
-      <HelloWorld/>
-    </div>
+  <NavBarIniciarSesion/>
+  <IniciarSesionComp/>
   </template>
   
   <script>
-  import HelloWorld from './components/HelloWorld.vue';
+  import IniciarSesionComp from './components/IniciarSesionComp.vue';
+import NavBarIniciarSesion from './components/NavBarIniciarSesion.vue';
   export default {
     name: 'IniciarSesion',
     components: {
-        HelloWorld
+      NavBarIniciarSesion,
+      IniciarSesionComp
     }
   }
   </script>

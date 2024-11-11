@@ -1,6 +1,5 @@
 <template>
     <div class="ContainerForos">
-      <AyudaBar></AyudaBar>
       <div class="Titulo">
         <h1>FOROS</h1>
       </div>
@@ -39,7 +38,6 @@
   </template>
   
   <script>
-  import AyudaBar from './Ayuda.vue';
   
   
   export default {
@@ -50,7 +48,7 @@
     
     components: {
       
-      AyudaBar,
+      
     }
   
   }

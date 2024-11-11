@@ -17,13 +17,17 @@
             <a class="nav-link custom-color" href="#Inicio" @click="setActive('home')">INICIO</a>
           </li>
           <li :class="['nav-item', { active: isActive('foros') }]">
+            <router-link to ="/foros">
             <a class="nav-link custom-color" href="#foros" @click="setActive('foros')">FOROS</a>
+            </router-link>
           </li>
           <li :class="['nav-item', { active: isActive('contactanos') }]">
             <a class="nav-link custom-color" href="#pricing" @click="setActive('contactanos')">CONTACTANOS</a>
           </li>
           <li :class="['nav-item', { active: isActive('iniciar-sesion') }]">
+            <router-link to="/iniciar-sesion">
             <a class="nav-link custom-color" href="#contact" @click="setActive('iniciar-sesion')">INICIAR SESION</a>
+            </router-link>
           </li>
         </ul>
       </div>

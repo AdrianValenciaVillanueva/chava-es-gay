@@ -96,13 +96,14 @@ export default {
 }
 
 .selector{
-  text-align: justify;
+  text-align: left;
   margin-bottom: 25px; /*Igual, espacio entre el selector y el botón */
 }
 
 /*Este es cuando se selecciones los textfields y el selector */
 .textfields input, .selector select {
     width: 100%; 
+    text-align: left;
     padding: 15px; /* Espaciado interno para hacerlo más grande */
     font-size: 1.5rem; 
     border: 2px solid #4A4085; 

@@ -1,4 +1,4 @@
-<!-- ESTE ARCHIVO SOLO SIRVE PARA REDIRIGIR -->
+<!-- ESTE ARCHIVO SOLO SIRVE PARA REDIRIGIR, ¡OJO!, NO EDITARLO -->
 <template>
     <router-view /> <!-- Aquí se renderizan las vistas según la ruta -->
 </template>
