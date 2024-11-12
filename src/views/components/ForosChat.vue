@@ -1,8 +1,6 @@
 <template>
     <div class="Titulo"><h1>Titulo Foro</h1></div>
-
     <div class="Foro">
-
         <div class="PreguntaCaja">
             <div class="Icono">
                 <img src="ruta-del-icono.svg" alt="icono de apoyo emocional" />

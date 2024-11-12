@@ -1,6 +1,7 @@
 <template>
-  <div class="ContainerForos">
     <AyudaBar></AyudaBar>
+
+  <div class="ContainerForos">
     <div class="Titulo">
       <h1>FOROS</h1>
     </div>

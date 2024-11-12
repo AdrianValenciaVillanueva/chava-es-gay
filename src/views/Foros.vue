@@ -1,4 +1,6 @@
 <template>
+      <ForosNavBar/>
+
     <div class="container mt-4">
       <BannerAyuda/>
     </div>
@@ -8,12 +10,13 @@
     <script>
     import BannerAyuda from './components/BannerAyuda.vue';
     import ForosView from './components/ForosView.vue';
-
+    import ForosNavBar from './components/ForosNavBar.vue';
     export default {
       name: 'IniciarSesion',
       components: {
         BannerAyuda,
-        ForosView
+        ForosView,
+        ForosNavBar
       }
     }
     </script>
