@@ -86,13 +86,14 @@ methods: {
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
-    position: relative; 
+    align-items: center;
 }
 
 .textfield1, .textfield2 {
     display: flex;
     flex-direction: column;
     gap: 0px;
+    width: 600px; /* Ancho igual para ambos textfields */
 }
 
 label {
@@ -101,39 +102,23 @@ label {
     text-align: justify;
 }
 
-.textfield1 input {
-    text-align: justify;
-    width: 600px;
+.textfield1 input,
+.textfield2 input {
+    width: 100%;
     height: 60px;
     border-radius: 50px;
     margin-bottom: -15px;
-}
-
-.textfield2 {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Contenedor input + boton */
-.input-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.input-container input {
-    height: 60px;
-    width: 100%; 
-    border-radius: 50px;
-}
-
-input {
     padding: 8px;
     font-size: 1.2rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
     text-align: left;
-    max-width: 100%;
+}
+
+.input-container {
+    margin-top: -15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
     width: 100%;
 }
 
@@ -141,17 +126,17 @@ input[type="text"]:focus, input[type="password"]:focus {
     border-color: #574a8b; 
     box-shadow: 0px 0px 8px rgba(87, 74, 139, 0.5); 
     outline: none; 
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .BotonEn:focus {
     outline: none;
-    transform: scale(1.05); /* Agranda un poco el botón al hacer clic */
-    transition: transform 0.2s ease; /* Transición suave en el tamaño */
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
 }
 
-
 .BotonEn {
+    margin-top: 15px;
     background-color: #332C5C;
     color: #FFFFFF;
     font-size: 1.3rem;
@@ -185,22 +170,57 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .redireccion-item button {
-    padding: 15px 30px;
+    width: 200px;
+    height: 60px;
     background-color: #FFDBDC;
     color: #000000;
-    font-size: 1rem;
-    border: 1px;
+    font-size: 1.2rem;
+    border: 2px solid #000000;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .redireccion-item button:hover {
     background-color: #574a8b;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
+
 .redireccion-item button:focus {
     outline: none;
-    transform: scale(1.05); /* Agranda un poco los botones de redirección */
+    transform: scale(1.05);
     transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .Principal h1 {
+        font-size: 3rem;
+    }
+
+    label, .input {
+        font-size: 1.2rem;
+    }
+
+.textfield2, .textfield1{
+        align-self: center;
+        width: 90%;
+    }
+.textfield2 input, .textfield1 input{
+    font-size: 1rem;
+    }
+    
+.BotonEn{
+    width: 180px;
+    font-size: 1rem;
+}
+.redireccion-item{
+    width: 110%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.redireccion-item button{
+    width: 140px;
+    height: 50px;
+}
+
 }
 </style>
