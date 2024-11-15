@@ -6,6 +6,7 @@
     </div>
     <SeccionContacto/>
     <AyudaBar/>
+    <VideosApoyo/>
 </template>
 
 <script>
@@ -13,7 +14,7 @@ import NavBar from './components/NavBar.vue';
 import AyudaBar from './components/Ayuda.vue';
 import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
-
+import VideosApoyo from './components/VideosApoyo.vue';
 export default {
   name: 'App',
   components: {
@@ -22,6 +23,7 @@ export default {
     BannerAyuda,
     SeccionContacto,
     AyudaBar,
+    VideosApoyo,
   }
 }
 </script>
