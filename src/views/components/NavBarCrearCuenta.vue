@@ -14,10 +14,16 @@
         <div class="collapse navbar-collapse" id="navbarNav" >
           <ul class="navbar-nav w-100 justify-content-around">
             <li :class="['nav-item', { active: isActive('Inicio') }]">
-            <router-link to="/" class="nav-link custom-color" @click="setActive('home')">INICIO</router-link>
+                <router-link to="/" class="nav-link custom-color" href="#Inicio" @click="setActive('home')">INICIO</router-link>
+            </li>
+            <li :class="['nav-item', { active: isActive('foros') }]">
+              <router-link to ="/foros" class="nav-link custom-color" @click="setActive('foros')">FOROS </router-link>
             </li>
             <li :class="['nav-item', { active: isActive('contactanos') }]">
               <router-link :to="{ path: '/', hash: '#contactanos' }" class="nav-link custom-color" >CONTACTANOS</router-link>
+            </li>
+            <li :class="['nav-item', { active: isActive('iniciar-sesion') }]">
+              <router-link to="/iniciar-sesion" class="nav-link custom-color" @click="setActive('iniciar-sesion')">INICIAR SESION</router-link>
             </li>
           </ul>
         </div>

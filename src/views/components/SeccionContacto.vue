@@ -37,33 +37,30 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
   name: 'SeccionContacto',
   data() {
     return {
-      nombre: '',     // Almacena el nombre ingresado
-      correo: '',     // Almacena el correo electrónico ingresado
-      reunion: ''     // Almacena el tipo de reunión seleccionada
+      nombre: '',     
+      correo: '',     
+      reunion: ''     
     };
   },
   methods: {
-    enviar() {
-      if (this.nombre && this.correo && this.reunion) {
-        alert(`Nombre: ${this.nombre}\nCorreo: ${this.correo}\nReunión: ${this.reunion}`);
-        // Llamada a la API; por mientras 
-        alert("Se hizo por que soy el más capito");
-      } 
-      else if(this.nombre && this.reunion){
-        alert('Por favor, ingresa un correo.'); 
-      }
-      else if(this.correo && this.reunion){
-        alert('Por favor, ingresa tu nombre.');
-      }
-      else {
-        alert('Por favor, completa todos los campos.'); 
-      }
+    async enviar() {
+    if (!this.nombre || !this.correo || !this.reunion) {
+        Swal.fire({
+        icon: 'warning',
+        title: 'Campos incompletos',
+        text: 'Por favor, completa todos los campos.'
+        });
+    return;
     }
-  }
+    // Aquí va lo de la BD Adrian
+}
+}
 };
 </script>
 
@@ -152,6 +149,7 @@ export default {
     }
 
     .botonEn {
+        margin-top: 30px;
         width: 300px; 
     }
 }
@@ -171,9 +169,16 @@ export default {
 
     .botonEn {
       margin-top: 20px;
-        width: 90%;
+        width: 50%;
         height: 50px; 
         font-size: 1.2rem;
+    }
+    .textfields input, .selector select{
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+    .textfields label, .selector label{
+      font-size: 1.2rem;
     }
 }
 </style>

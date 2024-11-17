@@ -22,7 +22,7 @@
             </router-link>
             </li>    -->
             <li :class="['nav-item', { active: isActive('contactanos') }]">
-              <a class="nav-link custom-color" href="#pricing" @click="setActive('contactanos')">CONTACTANOS</a>
+              <router-link :to="{ path: '/', hash: '#contactanos' }" class="nav-link custom-color" >CONTACTANOS</router-link>
             </li>
           </ul>
         </div>

@@ -23,7 +23,6 @@
                 </div>
             </div>
 
-            <!-- Contenedor de los botones de redirección dentro del formulario -->
             <div class="redireccion">
                 <div class="redireccion-item">
                     <p>¿Olvidaste tu contraseña?</p>
@@ -31,7 +30,9 @@
                 </div>
                 <div class="redireccion-item">
                     <p>¿No tienes una cuenta?</p>
+                    <router-link to="/crear-cuenta">
                     <button>Registrate</button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -110,7 +111,7 @@ label {
     margin-bottom: -15px;
     padding: 8px;
     font-size: 1.2rem;
-    border: 1px solid #ccc;
+    border: 1px solid #4A4085;
     text-align: left;
 }
 

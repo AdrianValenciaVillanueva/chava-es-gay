@@ -4,9 +4,12 @@
     <div class="container mt-4">
       <BannerAyuda/>
     </div>
-    <SeccionContacto/>
-    <AyudaBar/>
     <VideosApoyo/>
+    <section id="contactanos">
+    <SeccionContacto/>
+    </section>
+    <AyudaBar/>
+    
 </template>
 
 <script>
