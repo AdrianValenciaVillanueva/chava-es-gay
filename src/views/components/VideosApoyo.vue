@@ -75,7 +75,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .container {
   padding-top: 60px;
@@ -90,6 +89,7 @@ export default {
   font-weight: bold;
   color: #4a4a8f;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .cards-container {
@@ -102,6 +102,7 @@ export default {
 
 .apoyo-card {
   display: flex;
+  flex-direction: row;
   width: 100%;
   height: 200px;
   border-radius: 15px;
@@ -174,5 +175,52 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Media Queries */
+
+/* Tablets (768px o menos) */
+@media screen and (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .apoyo-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .video-player,
+  .play-icon {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .title {
+    width: 100%;
+  }
+}
+
+/* Smartphones (480px o menos) */
+@media screen and (max-width: 480px) {
+  .header {
+    font-size: 32px;
+  }
+
+  .apoyo-card {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: medium;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: 14px;
+    padding: 5px;
+  }
 }
 </style>
