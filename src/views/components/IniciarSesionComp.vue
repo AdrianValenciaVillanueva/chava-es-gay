@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Swal from 'sweetalert2';
 
 export default {
@@ -52,7 +53,6 @@ export default {
   },
 methods: {
     async enviar() {
-    // Aquí verifica que todos los campos estén llenos
     if (!this.correo || !this.contrasenia) {
         Swal.fire({
         icon: 'warning',
@@ -62,6 +62,7 @@ methods: {
     return;
     }
     // Aquí va lo de la BD Adrian
+    
 }
 }
 }

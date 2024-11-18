@@ -165,12 +165,11 @@ label{
     color: #000000
 }
 
-/* Estilo para los textfields */
 .textfield {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    width: 600px; /* Mantiene la misma anchura para los textfields */
+    width: 600px; 
 }
 
 .textfield input {
