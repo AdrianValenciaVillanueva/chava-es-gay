@@ -40,8 +40,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'InicioComp',
@@ -51,7 +52,11 @@ export default {
       contrasenia: ''
     };
   },
-methods: {
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
+    methods: {
     async enviar() {
     if (!this.correo || !this.contrasenia) {
         Swal.fire({
@@ -62,7 +67,65 @@ methods: {
     return;
     }
     // Aquí va lo de la BD Adrian
-    
+    try{
+        const response  = await axios.post("http://127.0.0.1:3000/api/usuarios/login",{
+          correo: this.correo,
+          contrasena: this.contrasenia,
+        });
+        console.log("Inicio de sesión exitoso", response.data);
+
+        Swal.fire({ 
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+            text: 'Redirigiendo...'
+        }).then(() => {
+            this.router.push({ name: 'Foros' });
+        });
+    } catch (error){
+        console.log(error.response.data);
+        if (error.response) {
+            console.error('Error en la respuesta del servidor:', error.response.data);
+            switch (error.response.status) {
+                case 401: //Credenciales incorrectas
+                case 404: //Usuario no encontrado
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Error al iniciar sesión',
+                    text: 'Correo o contraseña incorrectos.',
+                    });
+                break;
+            case 500: //Problema en el servidor
+                Swal.fire({
+                icon: 'error',
+                title: 'Error del servidor',
+                text: 'Ocurrió un problema en el sistema. Intenta más tarde.',
+                });
+                break;
+            default: //Otros errores
+                Swal.fire({
+                icon: 'error',
+                title: 'Error desconocido',
+                text: 'Algo salió mal. Intenta nuevamente.',
+                });
+            }
+        } else if (error.request) {
+            // No hubo respuesta del servidor
+            console.error('No se recibió respuesta del servidor:', error.request);
+            Swal.fire({
+            icon: 'error',
+            title: 'Error de conexión',
+            text: 'No se pudo conectar al servidor. Verifica tu red.',
+            });
+        } else {
+            // Otro tipo de error
+            console.error('Error inesperado:', error.message);
+            Swal.fire({
+            icon: 'error',
+            title: 'Error inesperado',
+            text: 'Ocurrió un problema. Intenta nuevamente.',
+            });
+        }
+    }
 }
 }
 }
