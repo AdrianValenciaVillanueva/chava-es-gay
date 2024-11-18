@@ -82,6 +82,9 @@
 
 <script>
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+
 
 export default {
   name: 'InicioComp',
@@ -96,6 +99,7 @@ export default {
         confirmar: ''
     };
   },
+ 
   mounted() {
     // Inicializar la API de Web Speech en los elementos con clase "lector"
     const synth = window.speechSynthesis;
@@ -118,6 +122,10 @@ export default {
       });
     });
   },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
   methods: {
     async enviar() {
     if (!this.nombre || !this.apellidos || !this.codigo || !this.sexo || !this.correo || !this.contrasenia || !this.confirmar) {
@@ -136,8 +144,51 @@ export default {
         });
         return;
     }
-    // Aquí va lo de la BD Adrian
-}
+
+    try{
+        const response  = await axios.post("http://127.0.0.1:3000/api/usuarios",{
+          nombre: this.nombre,
+          apellidos: this.apellidos,
+          codigo: this.codigo,
+          sexo: this.sexo,
+          correo: this.correo,
+          contrasena: this.contrasenia,
+        });
+        console.log(response.data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario creado',
+          text: 'Redirigiendo a foros...',
+          timer: 2000,
+          showConfirmButton: false
+        }).then(() => {
+          this.router.push({ name: 'Foros' });
+        });
+      }catch(error){
+        console.log(error.response.data);
+        if (error.response && error.response.data && error.response.data.error && error.response.data.error.includes('E11000 duplicate key error')) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Usuario ya existente'
+          });
+        }else if (error.response.data.error.includes('Usuario validation failed: contrasena')) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Contraseña debe ser alfanumérica, con números y al menos un símbolo especial'
+            });
+        } else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El correo institucional no es válido'
+        });
+        }
+      }
+    
+},
+
 }
 }
 </script>
