@@ -1,10 +1,10 @@
 <template>
    <router-view/>
   <NavBar/>
-  <BannerSolo></BannerSolo>
-    <div class="container mt-4">
+  <div class="container mt-4">
       <BannerAyuda/>
     </div>
+  <BannerSolo></BannerSolo>
     <VideosApoyo/>
     <section id="contactanos">
     <SeccionContacto/>
@@ -20,7 +20,7 @@ import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
 import VideosApoyo from './components/VideosApoyo.vue';
 import BannerSolo from './components/BannerSolo.vue';
-import Footerr from './components/Footer.vue';
+import Footerr from './components/FooterBar.vue';
 export default {
   name: 'App',
   components: {

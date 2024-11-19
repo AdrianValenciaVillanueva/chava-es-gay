@@ -2,7 +2,9 @@
     <div class="support-banner">
       <div class="text-container">
         <h1 class="title">NO ESTÁS SOL@</h1>
+        <router-link to="/iniciar-sesion">
         <button class="forum-button">ÚNETE A LOS FOROS</button>
+        </router-link>
       </div>
       <div class="imagen">
         <img src="https://as2.ftcdn.net/v2/jpg/04/14/50/45/1000_F_414504539_4rD1PgwHEJuVH4Y4sKbOZs20na7qtLVn.jpg" alt="Personas apoyándose" />
@@ -79,10 +81,12 @@
 
   .text-container {
     margin: 0 0 15px 0;
+    padding-left: 0px;
   }
 
   .title {
-    font-size: 18px;
+    margin-top: 40px;
+    font-size: 40px;
   }
 
   .forum-button {
@@ -91,7 +95,7 @@
   }
 
   .imagen img {
-    max-width: 80%;
+    max-width: 70%;
   }
 }
 
@@ -104,6 +108,9 @@
     font-size: 32px;
   }
 
+  .text-container{
+    padding-left: 0px;
+  }
   .forum-button {
     font-size: 18px;
     padding: 12px 25px;

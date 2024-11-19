@@ -1,6 +1,7 @@
 <template>
     <div class="Principal">
         <h1 class="Titulo">INICIAR SESIÓN</h1>
+        <p class="aviso">¡Para ingresar a los foros necesitas registrarte!</p>
         <div class="Formulario">
             <div class="textfield1">
                 <label for="correo">Correo electronico</label>
@@ -146,6 +147,11 @@ export default {
     font-weight: bold;
 }
 
+.aviso{
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: -10px;
+}
 .Formulario {
     display: flex;
     flex-direction: column;
@@ -158,7 +164,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    width: 600px; /* Ancho igual para ambos textfields */
+    width: 600px; /*Ancho igual para ambos textfields */
 }
 
 label {
@@ -273,6 +279,9 @@ input[type="text"]:focus, input[type="password"]:focus {
     font-size: 1rem;
     }
     
+.aviso{
+    font-size: 1.2rem;
+}
 .BotonEn{
     width: 180px;
     font-size: 1rem;
