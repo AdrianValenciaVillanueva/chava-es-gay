@@ -10,7 +10,7 @@
     <SeccionContacto/>
     </section>
     <AyudaBar/>
-    
+    <Footerr></Footerr>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
 import VideosApoyo from './components/VideosApoyo.vue';
 import BannerSolo from './components/BannerSolo.vue';
-
+import Footerr from './components/Footer.vue';
 export default {
   name: 'App',
   components: {
@@ -30,6 +30,7 @@ export default {
     BannerAyuda,
     SeccionContacto,
     AyudaBar,
+    Footerr,
     VideosApoyo,
   }
 }
