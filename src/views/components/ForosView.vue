@@ -17,7 +17,11 @@
           <p class="foro-descripcion">
             Un espacio para compartir experiencias, estrategias y recursos sobre cómo lidiar con la ansiedad y el estrés diario. 
           </p>
-          <button class="foro-boton">ENTRAR</button>
+          <div>
+            <router-link to="/foro-chat">
+              <button class="foro-boton">ENTRAR</button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +40,7 @@ export default {
     AyudaBar,
   }
 }
+
 </script>
 
 <style scoped>
