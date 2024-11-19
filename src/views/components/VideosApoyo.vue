@@ -35,39 +35,39 @@ export default {
     return {
       items: [
         {
-          title: 'Apoyo 1',
-          description: 'Descripción breve de blog 1',
-          video: 'https://www.youtube.com/embed/0mSNnobHcYQ',
+          title: 'Depresión',
+          description: 'Sentimientos persistentes de tristeza y pérdida de interés.',
+          video: 'https://www.youtube.com/embed/WIb4B79B9zQ',
           backgroundColor: '#d7e3fc',
         },
         {
-          title: 'Apoyo 2',
-          description: 'Descripción breve de blog 2',
-          video: 'https://www.youtube.com/embed/VIDEO_ID_2',
+          title: 'Trastorno de ansiedad',
+          description: 'Condición en la que una persona experimenta preocupaciones excesivas',
+          video: 'https://www.youtube.com/embed/11hAfpDfE78',
           backgroundColor: '#f0e1f1',
         },
         {
-          title: 'Apoyo 3',
-          description: 'Descripción breve de blog 3',
-          video: 'https://www.youtube.com/embed/VIDEO_ID_3',
+          title: 'Esquizofrenia',
+          description: 'Trastorno mental grave que afecta la percepción de la realidad, causando alucinaciones y pensamientos desorganizados.',
+          video: 'https://www.youtube.com/embed/ZPS5WxntgYM',
           backgroundColor: '#e0f0ff',
         },
         {
-          title: 'Apoyo 4',
-          description: 'Descripción breve de blog 4',
-          video: 'https://www.youtube.com/embed/VIDEO_ID_4',
+          title: 'Trastorno obsesivo-compulsivo',
+          description: 'Condición en la que una persona tiene pensamientos intrusivos y recurrentes seguidos de comportamientos repetitivos para aliviar la ansiedad.',
+          video: 'https://www.youtube.com/embed/Mf_mRF6M_Jk',
           backgroundColor: '#f0d7d7',
         },
         {
-          title: 'Apoyo 5',
-          description: 'Descripción breve de blog 5',
-          video: 'https://www.youtube.com/embed/VIDEO_ID_5',
+          title: 'Trastorno bipolar',
+          description: 'Trastorno del estado de ánimo que causa cambios extremos entre períodos de manía (euforia) y depresión profunda',
+          video: 'https://www.youtube.com/embed/3QykthLD8mU',
           backgroundColor: '#e3f7d7',
         },
         {
-          title: 'Apoyo 6',
-          description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae deserunt maiores eligendi temporibus saepe esse voluptas facilis ipsum aut. A, temporibus saepe? Ad sapiente reprehenderit commodi consequatur numquam reiciendis error.',
-          video: 'https://www.youtube.com/embed/VIDEO_ID_6',
+          title: 'Anorexia nerviosa',
+          description: 'Trastorno alimentario caracterizado por una restricción extrema de la ingesta de alimentos y un temor intenso a ganar peso',
+          video: 'https://www.youtube.com/embed/ybHfgSlziNc',
           backgroundColor: '#e0f0ff',
         }
       ]
@@ -116,7 +116,7 @@ export default {
 .description {
   font-size: 16px;
   color: #333;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   white-space: normal;
   word-wrap: break-word;
   max-height: 100px; 
@@ -124,6 +124,8 @@ export default {
   padding-right: 10px; 
   border-radius: 10px; 
   padding: 10px; 
+  padding-top: 0;
+
   transition: all 0.3s ease;
 }
 
@@ -136,7 +138,7 @@ export default {
 }
 
 .description::-webkit-scrollbar-thumb {
-  background-color: #7f7f7f;
+  /* background-color: #7f7f7f; */
   border-radius: 10px;
   border: 2px solid #f0f0f0;
 }
@@ -159,6 +161,7 @@ export default {
   font-weight: bold;
   font-size: large;
   margin-bottom: 20px;
+  width: auto;
 }
 
 .video-player {

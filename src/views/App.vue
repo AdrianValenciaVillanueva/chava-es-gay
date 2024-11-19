@@ -1,6 +1,7 @@
 <template>
    <router-view/>
   <NavBar/>
+  <BannerSolo></BannerSolo>
     <div class="container mt-4">
       <BannerAyuda/>
     </div>
@@ -18,11 +19,14 @@ import AyudaBar from './components/Ayuda.vue';
 import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
 import VideosApoyo from './components/VideosApoyo.vue';
+import BannerSolo from './components/BannerSolo.vue';
+
 export default {
   name: 'App',
   components: {
 
     NavBar,
+    BannerSolo,
     BannerAyuda,
     SeccionContacto,
     AyudaBar,
