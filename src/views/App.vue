@@ -4,6 +4,7 @@
     <div class="container mt-4">
       <BannerAyuda/>
     </div>
+    <BannerSolo/>
     <VideosApoyo/>
     <section id="contactanos">
     <SeccionContacto/>
@@ -20,6 +21,7 @@ import BannerAyuda from './components/BannerAyuda.vue';
 import SeccionContacto from './components/SeccionContacto.vue';
 import VideosApoyo from './components/VideosApoyo.vue';
 import FooterBar from './components/FooterBar.vue';
+import BannerSolo from './components/BannerSolo.vue';
 export default {
   name: 'App',
   components: {
@@ -29,7 +31,8 @@ export default {
     SeccionContacto,
     AyudaBar,
     VideosApoyo,
-    FooterBar
+    FooterBar,
+    BannerSolo
   }
 }
 </script>
