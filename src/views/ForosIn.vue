@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBarIniciarSesion/>
+    <ForosNavBar/>
     <div class="container mt-4">
       <ForosChat :posts="posts" :IdUsuario="IdUsuario"/>
     </div>
@@ -19,16 +19,16 @@
 
 <script>
 import ForosChat from './components/ForosChat.vue';
-import NavBarIniciarSesion from './components/NavBarIniciarSesion.vue';
 import axios from 'axios';
 import io from 'socket.io-client';
 import Swal from 'sweetalert2';
+import ForosNavBar from './components/ForosNavBar.vue';
 
 export default {
   name: 'IniciarSesion',
   components: {
     ForosChat,
-    NavBarIniciarSesion,
+    ForosNavBar,
   },
   data() {
     return {

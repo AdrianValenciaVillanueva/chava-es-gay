@@ -85,7 +85,7 @@ export default {
 }
 
 .header {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: bold;
   color: #4a4a8f;
   margin-bottom: 20px;
@@ -202,6 +202,10 @@ export default {
 
   .title {
     width: 100%;
+  }
+
+  .header{
+    font-size: 48px;
   }
 }
 
