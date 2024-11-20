@@ -45,23 +45,28 @@ export default {
     }
   },
   watch: {
-    posts() {
-      this.$nextTick(() => {
+  posts() {
+    this.$nextTick(() => {
+      if (this.$refs.post && this.$refs.post.length) {
         const lastPost = this.$refs.post[this.$refs.post.length - 1];
         if (lastPost) {
           lastPost.scrollIntoView({ behavior: 'smooth' });
         }
-      });
-    }
-  },
-  updated() {
-    this.$nextTick(() => {
+      }
+    });
+  }
+},
+updated() {
+  this.$nextTick(() => {
+    if (this.$refs.post && this.$refs.post.length) {
       const lastPost = this.$refs.post[this.$refs.post.length - 1];
       if (lastPost) {
         lastPost.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  }
+    }
+  });
+}
+  
 };
 </script>
 
