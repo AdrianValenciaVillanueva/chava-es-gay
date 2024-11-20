@@ -1,6 +1,6 @@
 <template>
     <div class="principal">
-      <h1 class="Titulo lector">Crear Cuenta</h1>
+      <h1 class="Titulo lector">CREAR CUENTA</h1>
       <div class="textfield">
         <label for="nombre" class="lector">Nombre(s)</label>
         <input
