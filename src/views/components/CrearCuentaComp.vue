@@ -162,7 +162,7 @@ export default {
           timer: 2000,
           showConfirmButton: false
         }).then(() => {
-          this.router.push({ name: 'Foros' });
+          this.$router.push('/iniciar-sesion');
         });
       }catch(error){
         console.log(error.response.data);
