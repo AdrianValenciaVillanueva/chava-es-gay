@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav w-100 justify-content-around">
           <li :class="['nav-item', { active: isActive('foros') }]">
-            <router-link to ="/foros" class="nav-link custom-color" @click="setActive('foros')">FOROS </router-link>
+            <router-link to ="/iniciar-sesion" class="nav-link custom-color" @click="setActive('foros')">FOROS </router-link>
           </li>
           <li :class="['nav-item', { active: isActive('contactanos') }]">
               <a class="nav-link custom-color" href="#contactanos">CONTACTANOS</a>

@@ -1,6 +1,6 @@
 <template>
    <router-view/>
-  <NavBar/>
+   <NavBar/>
     <div class="container mt-4">
       <BannerAyuda/>
     </div>
@@ -11,7 +11,6 @@
     </section>
     <AyudaBar/>
     <FooterBar/>
-    
 </template>
 
 <script>
