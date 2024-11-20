@@ -18,7 +18,7 @@
                     type="text"
                     id="correo"
                     v-model="correo"
-                    placeholder="Ingresa tu correo electronico"
+                    placeholder="Ingresa tu correo institucional"
                 />
             </div>
             <div class ="selector">
@@ -26,8 +26,7 @@
               <select v-model="reunion" id="reunion">
                 <option value="" disabled selected>Selecciona una opción</option>
                 <option value="videollamada">Video llamada</option> 
-                <option value="llamada">Llamada</option>
-                <option value="mensajes">Mensajes</option>
+                <option value="correo">Correo</option>
                 <option value="presencial">Presencial</option>
               </select>
             </div>
@@ -37,6 +36,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
@@ -59,6 +59,40 @@ export default {
     return;
     }
     // Aquí va lo de la BD Adrian
+    try{
+      const response  = await axios.post("http://127.0.0.1:3000/api/citas",{
+          nombre: this.nombre,
+          correo: this.correo,
+          metodo: this.reunion,
+        });
+        console.log(response.data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Cita enviada',
+          text: 'Se ha enviado la cita correctamente',
+        }).then(() => {
+          this.nombre = '';
+          this.correo = '';
+          this.reunion = '';
+        });
+    }catch(error){
+      console.log(error.response.data);
+      if (error.response && error.response.status === 500) {
+      //Error interno del servidor
+      Swal.fire({
+        icon: 'error',
+        title: 'Correo invalido',
+        text: 'Debes colocar tu correo institucional',
+      });
+    } else {
+      //Otros errores
+      Swal.fire({
+        icon: 'error',
+        title: 'Error desconocido',
+        text: 'Algo salió mal. Verifica tu conexión e intenta nuevamente.',
+      });
+    }
+    }
 }
 }
 };
