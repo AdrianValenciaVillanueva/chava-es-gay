@@ -1,83 +1,77 @@
 <template>
     <div class="principal">
-      <h1 class="Titulo lector">CREAR CUENTA</h1>
-      <div class="textfield">
-        <label for="nombre" class="lector">Nombre(s)</label>
-        <input
-          type="text"
-          id="nombre"
-          class="lector"
-          v-model="nombre"
-          placeholder="Coloca tu nombre o nombres"
-        />
-      </div>
-      <div class="textfield">
-        <label for="apellidos" class="lector">Apellidos</label>
-        <input
-          type="text"
-          id="apellidos"
-          class="lector"
-          v-model="apellidos"
-          placeholder="Coloca tu apellido paterno y materno"
-        />
-      </div>
-      <div class="contenedorDoble">
+        <h1 class="Titulo lector">CREAR CUENTA</h1>
         <div class="textfield">
-          <label for="codigo" class="lector">Código</label>
-          <input
-            type="number"
-            id="codigo"
-            class="lector"
-            v-model="codigo"
-            placeholder="Código UDG"
-            min="9"
-            max="9"
-          />
-        </div>
-        <div class="selector">
-          <label for="sexo" class="lector">Sexo</label>
-          <select v-model="sexo" id="sexo" class="lector">
-            <option value="" disabled selected></option>
-            <option value="femenino">Femenino</option>
-            <option value="masculino">Masculino</option>
-            <option value="noBinario">No binario</option>
-            <option value="no">Prefiero no decirlo</option>
-          </select>
-        </div>
-      </div>
-      <div class="textfield">
-        <label for="correo" class="lector">Correo institucional</label>
-        <input
-          type="text"
-          id="correo"
-          class="lector"
-          v-model="correo"
-          placeholder="correo@alumnos.udg.mx"
-        />
-      </div>
-      <div class="contenedorDoble">
-        <div class="textfield">
-          <label for="contrasenia" class="lector">Contraseña</label>
-          <input
-            type="password"
-            id="contrasenia"
-            class="lector"
-            v-model="contrasenia"
-          />
+            <label for="nombre">Nombre(s)</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    v-model="nombre"
+                    placeholder="Coloca tu nombre o nombres"
+                />
         </div>
         <div class="textfield">
-          <label for="confirmar" class="lector">Confirmar contraseña</label>
-          <input
-            type="password"
-            id="confirmar"
-            class="lector"
-            v-model="confirmar"
-          />
+            <label for="apellidos">Apellidos</label>
+                <input
+                    type="text"
+                    id="apellidos"
+                    v-model="apellidos"
+                    placeholder="Coloca tu apellido paterno y materno"
+                />
         </div>
-      </div>
-      <button class="registrarse lector" @click="enviar">REGISTRARSE</button>
+        <div class="contenedorDoble">
+            <div class="textfield">
+                <label for="codigo">Código</label>
+                    <input
+                        type="number" 
+                        id="codigo" 
+                        v-model="codigo" 
+                        placeholder="Código UDG" 
+                        min="9" 
+                        max="9"
+                    />
+            </div>
+            <div class="selector">
+            <label for="sexo">Sexo</label>
+                <select v-model="sexo" id="sexo">
+                    <option value="" disabled selected></option>
+                    <option value="femenino">Femenino</option> 
+                    <option value="masculino">Masculino</option>
+                    <option value="noBinario">No binario</option>
+                    <option value="no">Prefiero no decirlo</option>
+                </select>
+            </div>
+        </div>
+        <div class="textfield">
+            <label for="correo">Correo institucional</label>
+                <input
+                    type="text"
+                    id="correo"
+                    v-model="correo"
+                    placeholder="correo@alumnos.udg.mx"
+                />
+        </div>
+        <div class="contenedorDoble">
+            <div class="textfield">
+            <label for="contrasenia">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasenia"
+                    v-model="contrasenia"
+                />
+            </div>   
+            <div class="textfield">
+            <label for="confirmar">Confirmar contraseña</label>
+                <input
+                    type="password"
+                    id="confirmar"
+                    v-model="confirmar"
+                />
+            </div>
+        </div>
+        <button class="registrarse" @click="enviar">REGISTRARSE</button>
     </div>
-  </template>
+</template>
   
 
 <script>
@@ -99,28 +93,8 @@ export default {
         confirmar: ''
     };
   },
- 
-  mounted() {
-    // Inicializar la API de Web Speech en los elementos con clase "lector"
-    const synth = window.speechSynthesis;
-
-    function speak(text) {
-      if (synth.speaking) {
-        synth.cancel(); // Detener cualquier lectura previa
-      }
-      const utterance = new SpeechSynthesisUtterance(text);
-      synth.speak(utterance);
-    }
-
-    // Agregar eventos de ratón para los elementos con la clase "lector"
-    document.querySelectorAll('.lector').forEach((element) => {
-      element.addEventListener('mouseover', () => {
-        const text = element.innerText || element.placeholder;
-        if (text) {
-          speak(text);
-        }
-      });
-    });
+  mounted(){
+    console.log(this.codigo)
   },
   setup() {
     const router = useRouter();
@@ -128,6 +102,7 @@ export default {
   },
   methods: {
     async enviar() {
+      console.log(this.codigo.length)
     if (!this.nombre || !this.apellidos || !this.codigo || !this.sexo || !this.correo || !this.contrasenia || !this.confirmar) {
         Swal.fire({
         icon: 'warning',
@@ -145,6 +120,17 @@ export default {
         return;
     }
 
+    const codigoStr = this.codigo.toString();
+    console.log(codigoStr.length); 
+
+    if (codigoStr.length !== 9) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Código inválido',
+        text: 'El código debe tener exactamente 9 dígitos.',
+      });
+      return;
+    }
     try{
         const response  = await axios.post("http://127.0.0.1:3000/api/usuarios",{
           nombre: this.nombre,
@@ -158,7 +144,7 @@ export default {
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado',
-          text: 'Redirigiendo a foros...',
+          text: 'Inicia sesión para entrar a foros',
           timer: 2000,
           showConfirmButton: false
         }).then(() => {
