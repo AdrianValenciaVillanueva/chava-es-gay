@@ -2,7 +2,7 @@
   <div>
     <NavBarIniciarSesion/>
     <div class="container mt-4">
-      <ForosChat :posts="posts"/>
+      <ForosChat :posts="posts" :IdUsuario="IdUsuario"/>
     </div>
 
     <div class="ComentarioSeccion">
@@ -22,6 +22,7 @@ import ForosChat from './components/ForosChat.vue';
 import NavBarIniciarSesion from './components/NavBarIniciarSesion.vue';
 import axios from 'axios';
 import io from 'socket.io-client';
+import Swal from 'sweetalert2';
 
 export default {
   name: 'IniciarSesion',
@@ -35,7 +36,8 @@ export default {
       socket: null,
       id_foro: '60d0fe4f5311236168a109ca', // Ajusta esto según tu lógica
       posts: [],
-      mensaje: ''
+      mensaje: '',
+      IdUsuario: ''
     };
   },
   mounted() {
@@ -46,8 +48,22 @@ export default {
 
     // Cargar los posts iniciales
     this.fetchPosts();
+    this.getUsuarioLogeado();
   },
   methods: {
+    async getUsuarioLogeado() {
+      try {
+        const response = await axios.get('http://127.0.001:3000/api/usuarioLogeado', {
+          withCredentials: true
+        });
+        console.log('Usuario logeado:', response.data);
+        this.IdUsuario = response.data._id;
+        console.log('IdUsuario:', this.IdUsuario);
+      } catch (error) {
+        console.error('Error al obtener el usuario logeado:', error.response.data);
+      }
+    },
+
     async fetchPosts() {
       try {
         const response = await axios.get('http://127.0.0.1:3000/api/posts', {
@@ -71,8 +87,13 @@ export default {
           console.log('Post creado:', response.data);
           this.comentario = ''; // Limpiar el campo de comentario
         } catch (error) {
-          this.mensaje = 'Error al crear el post';
-          console.error('Error al crear el post:', error.response.data);
+          if (error.response.data.error === 'El contenido contiene palabras ofensivas') {
+            Swal.fire({
+              icon: 'warning',
+              title: 'Se amable',
+              text: 'Todos merecemos ayuda',
+            });
+          }
         }
       } else {
         alert("Por favor, escribe algo antes de publicar.");
