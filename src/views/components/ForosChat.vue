@@ -1,16 +1,17 @@
 <template>
   <div>
-    <div class="Titulo"><h1>Titulo Foro</h1></div>
+    <div class="Titulo"><h1>Foro General</h1></div>
     <div class="Foro" ref="foroContainer">
-      <div v-for="(item, index) in posts" :key="index" :class="index % 2 === 0 ? 'PreguntaCaja' : 'PreguntaUsuario'" ref="post">
-        <div class="Icono" v-if="index % 2 === 0">
-          <img src="ruta-del-icono.svg" alt="icono de apoyo emocional" />
+      <div v-for="(item, index) in posts" :key="index" :class="item.id_usuario==this.IdUsuario ? 'PreguntaUsuario' : 'PreguntaCaja'" ref="post">
+        <div class="Icono" v-if="item.id_usuario==this.IdUsuario">
+          <img :src="userIcon" alt="icono de apoyo emocional" class="user-icon"/>
         </div>
         <div class="CajaTexto">
           <p>{{ item.contenido }}</p>
+          <p :class="item.id_usuario==this.IdUsuario ? 'fecha-usuario' : 'fecha-resto'">{{ formatDate(item.fecha_publicacion) }}</p>
         </div>
-        <div class="Icono IconoDerecha" v-if="index % 2 !== 0">
-          <img src="ruta-del-icono.svg" alt="icono de apoyo emocional" />
+        <div class="Icono IconoDerecha" v-if="item.id_usuario!=this.IdUsuario">
+          <img :src="userIcon" alt="icono de apoyo emocional" class="user-icon"/>
         </div>
       </div>
     </div>
@@ -18,12 +19,29 @@
 </template>
 
 <script>
+import { format } from 'date-fns';
+import userIcon from '../assets/user.png';
+
 export default {
   name: 'ForoApoyoEmocional',
   props: {
     posts: {
       type: Array,
       required: true
+    },
+    IdUsuario: {
+      type: String,
+      required: true
+    }
+  },
+  data() {
+    return {
+      userIcon,
+    };
+  },
+  methods: {
+    formatDate(date) {
+      return format(new Date(date), 'dd/MM/yyyy HH:mm');
     }
   },
   watch: {
@@ -120,6 +138,22 @@ export default {
   height: 24px;
 }
 
+.fecha {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.fecha-usuario {
+  width: 30rem;
+  text-align: right;
+}
+
+.fecha-resto {
+  width: 28rem;
+  text-align: left;
+}
+
 /* Posición del icono en la izquierda para un usuario externo */
 .PreguntaCaja .Icono {
   left: -40px;
@@ -145,11 +179,17 @@ export default {
     font-size: 1.8rem; /* Reduce el tamaño del título en pantallas pequeñas */
   }
 
-  .PreguntaCaja,
-  .PreguntaUsuario {
+  .PreguntaCaja {
     width: 100%; /* Hacer que las cajas ocupen el 100% del ancho */
     margin-left: 0; /* Quitar márgenes laterales */
     margin-right: 0;
+  }
+  .PreguntaUsuario{
+    width: 100%; /* Hacer que las cajas ocupen el 100% del ancho */
+    display: flex;
+    margin-left: 0; /* Quitar márgenes laterales */
+    margin-right: 0;
+    justify-content: flex-end;
   }
 
   .Icono {
@@ -161,5 +201,16 @@ export default {
     font-size: 0.9rem; /* Reducir tamaño de texto */
     padding: 0.5rem; /* Reducir padding */
   }
+
+  .fecha-usuario {
+    width: auto;
+    text-align: center;
+}
+
+.fecha-resto {
+  width: auto;
+  text-align: center;
+  margin: 0;
+}
 }
 </style>
